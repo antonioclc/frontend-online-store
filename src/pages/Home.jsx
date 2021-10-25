@@ -1,13 +1,14 @@
 import React from 'react';
+import CartButton from '../components/CartButton';
 
 export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor="input-text-search">
+        <label htmlFor="input-text">
           <input
             type="text"
-            id="input-text-search"
+            id="input-text"
           />
         </label>
         <h3
@@ -16,6 +17,7 @@ export default class Home extends React.Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
 
         </h3>
+        <CartButton />
       </div>
     );
   }
