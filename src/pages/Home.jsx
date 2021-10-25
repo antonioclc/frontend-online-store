@@ -6,10 +6,12 @@ export default class Home extends React.Component {
       <div>
         <label htmlFor="input-text">
           <input
+            data-testid="query-input"
             type="text"
             id="input-text"
           />
         </label>
+        <button type="button" data-testid="query-button">Pesquisar</button>
         <h3
           data-testid="home-initial-message"
         >
