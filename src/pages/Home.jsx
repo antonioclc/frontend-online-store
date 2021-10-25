@@ -1,4 +1,5 @@
 import React from 'react';
+import CartButton from '../components/CartButton';
 import { getCategories } from '../services/api';
 
 export default class Home extends React.Component {
@@ -37,6 +38,9 @@ export default class Home extends React.Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
 
         </h3>
+
+        <CartButton />
+
         <section>
           <ul>
             {categories.map(({ id, name }) => (
@@ -49,6 +53,7 @@ export default class Home extends React.Component {
               </li>))}
           </ul>
         </section>
+
       </div>
     );
   }
