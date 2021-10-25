@@ -4,10 +4,10 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor="input-text">
+        <label htmlFor="input-text-search">
           <input
             type="text"
-            id="input-text"
+            id="input-text-search"
           />
         </label>
         <h3
