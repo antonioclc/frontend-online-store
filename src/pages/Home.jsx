@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CartButton from '../components/CartButton';
 import Card from '../components/Card';
 import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
@@ -44,10 +45,15 @@ export default class Home extends React.Component {
         <div>
           {
             productsList.map((product) => (
-              <Card
+              <Link
+                to={ { pathname: `/productdetails/${product.id}`, state: product } }
+                data-testid="product-detail-link"
                 key={ product.id }
-                prod={ product }
-              />
+              >
+                <Card
+                  state={ product }
+                />
+              </Link>
             ))
           }
         </div>
