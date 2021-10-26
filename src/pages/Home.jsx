@@ -32,10 +32,9 @@ export default class Home extends React.Component {
 
   onClickCategory({ target }) {
     const targetId = target.id;
-    console.log(targetId);
     this.setState({
       idCategories: targetId,
-    });
+    }, () => this.renderProducts());
   }
 
   verifyProductList() {
@@ -62,7 +61,6 @@ export default class Home extends React.Component {
     this.setState({
       productsList: products.results,
     });
-    console.log(products.results);
   }
 
   async renderCategories() {
