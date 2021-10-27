@@ -5,13 +5,22 @@ export default class ItemCart extends React.Component {
   constructor() {
     super();
     this.state = {
-      quantity: '1',
+      quantity: 1,
     };
-    this.changeQuantity = this.changeQuantity.bind(this);
+    this.changeQuantityIncrease = this.changeQuantityIncrease.bind(this);
+    this.changeQuantityDecrease = this.changeQuantityDecrease.bind(this);
   }
 
-  changeQuantity() {
+  changeQuantityIncrease() {
+    this.setState((prevState) => ({
+      quantity: prevState.quantity + 1,
+    }));
+  }
 
+  changeQuantityDecrease() {
+    this.setState((prevState) => ({
+      quantity: prevState.quantity - 1,
+    }));
   }
 
   render() {
@@ -28,7 +37,21 @@ export default class ItemCart extends React.Component {
         <h2>
           { item.price }
         </h2>
+        <button
+          onClick={ this.changeQuantityDecrease }
+          type="button"
+          data-testid="product-decrease-quantity"
+        >
+          -
+        </button>
         <p data-testid="shopping-cart-product-quantity">{quantity}</p>
+        <button
+          onClick={ this.changeQuantityIncrease }
+          type="button"
+          data-testid="product-increase-quantity"
+        >
+          +
+        </button>
       </div>
     );
   }
