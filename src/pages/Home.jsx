@@ -1,107 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CartButton from '../components/CartButton';
-import Card from '../components/Card';
-import { getCategories, getProductsFromCategoryAndQuery } from '../services/api';
 
 export default class Home extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: [],
-      inputSearch: '',
-      idCategories: '',
-      productsList: [],
-      cartList: [],
-    };
-    this.renderCategories = this.renderCategories.bind(this);
-    this.renderProducts = this.renderProducts.bind(this);
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onClickCategory = this.onClickCategory.bind(this);
-    this.verifyProductList = this.verifyProductList.bind(this);
-    this.addToCart = this.addToCart.bind(this);
-  }
-
-  componentDidMount() {
-    this.renderCategories();
-  }
-
-  onInputChange({ target }) {
-    const targetValue = target.value;
-    this.setState({
-      inputSearch: targetValue,
-    });
-  }
-
-  onClickCategory({ target }) {
-    const targetId = target.id;
-    this.setState({
-      idCategories: targetId,
-    }, () => this.renderProducts());
-  }
-
-  addToCart({ target }) {
-    const { productsList, cartList } = this.state;
-    const { id } = target;
-    const item = productsList.filter((product) => product.id === id);
-    this.setState({
-      cartList: [...cartList, ...item],
-    });
-  }
-
-  verifyProductList() {
-    const { productsList } = this.state;
-    if (productsList.length > 0) {
-      return (
-        <div>
-          {
-            productsList.map((product) => (
-              <div key={ product.id }>
-                <Link
-                  to={ { pathname: `/productdetails/${product.id}`, state: product } }
-                  data-testid="product-detail-link"
-                >
-                  <Card
-                    state={ product }
-                  />
-                </Link>
-                <input
-                  id={ product.id }
-                  type="button"
-                  value="Adicionar item"
-                  data-testid="product-add-to-cart"
-                  onClick={ this.addToCart }
-                />
-              </div>
-            ))
-          }
-        </div>
-      );
-    }
-  }
-
-  async renderProducts() {
-    const { idCategories, inputSearch } = this.state;
-    const products = await getProductsFromCategoryAndQuery(idCategories, inputSearch);
-    this.setState({
-      productsList: products.results,
-    });
-  }
-
-  async renderCategories() {
-    const categories = await getCategories();
-    this.setState({
-      categories: [...categories],
-    });
-  }
-
   render() {
-    const { categories, cartList } = this.state;
+    const { categories, onInputChange, onClickCategory,
+      renderProducts, verifyProductList, cartList } = this.props;
     return (
       <div>
         <label htmlFor="input-text">
           <input
-            onChange={ this.onInputChange }
+            onChange={ onInputChange }
             data-testid="query-input"
             type="text"
             id="input-text"
@@ -110,7 +19,7 @@ export default class Home extends React.Component {
         <button
           type="button"
           data-testid="query-button"
-          onClick={ this.renderProducts }
+          onClick={ renderProducts }
         >
           Pesquisar
         </button>
@@ -135,7 +44,7 @@ export default class Home extends React.Component {
                     id={ id }
                     value={ name }
                     type="radio"
-                    onClick={ this.onClickCategory }
+                    onClick={ onClickCategory }
                     data-testid="category"
                   />
                 </label>
@@ -143,8 +52,17 @@ export default class Home extends React.Component {
             ))}
           </ul>
         </section>
-        { this.verifyProductList() }
+        { verifyProductList() }
       </div>
     );
   }
 }
+
+Home.propTypes = PropTypes.shape({
+  categories: PropTypes.arrayOf,
+  cartList: PropTypes.arrayOf,
+  onInputChange: PropTypes.func,
+  onClickCategory: PropTypes.func,
+  renderProducts: PropTypes.func,
+  verifyProductList: PropTypes.func,
+}).isRequired;
