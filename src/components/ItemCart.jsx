@@ -18,9 +18,12 @@ export default class ItemCart extends React.Component {
   }
 
   changeQuantityDecrease() {
-    this.setState((prevState) => ({
-      quantity: prevState.quantity - 1,
-    }));
+    const { quantity } = this.state;
+    if (quantity > 1) {
+      this.setState((prevState) => ({
+        quantity: prevState.quantity - 1,
+      }));
+    }
   }
 
   render() {
@@ -35,6 +38,8 @@ export default class ItemCart extends React.Component {
         <h4>{ item.id }</h4>
         <img src={ item.thumbnail } alt={ item.title } />
         <h2>
+          R$
+          {' '}
           { item.price }
         </h2>
         <button

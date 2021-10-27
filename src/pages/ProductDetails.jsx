@@ -14,6 +14,8 @@ export default class ProductDetails extends React.Component {
         </h3>
         <img src={ thumbnail } alt={ title } />
         <h2>
+          R$
+          {' '}
           { price }
         </h2>
         <input
@@ -23,6 +25,32 @@ export default class ProductDetails extends React.Component {
           data-testid="product-detail-add-to-cart"
           onClick={ addToCart }
         />
+        <form>
+          <label htmlFor="email">
+            Email
+            <input type="email" />
+          </label>
+          <label htmlFor="score" required>
+            <input name="score" type="radio" value={ 1 } />
+            1
+            <input name="score" type="radio" value={ 2 } />
+            2
+            <input name="score" type="radio" value={ 3 } />
+            3
+            <input name="score" type="radio" value={ 4 } />
+            4
+            <input name="score" type="radio" value={ 5 } />
+            5
+          </label>
+          <textarea
+            data-testid="product-detail-evaluation"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="Mensagem (opcional)"
+          />
+          <button type="button">Avaliar</button>
+        </form>
       </div>
     );
   }

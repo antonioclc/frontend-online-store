@@ -12,6 +12,8 @@ export default class Card extends React.Component {
         <h4>{ id }</h4>
         <img src={ thumbnail } alt={ title } />
         <h2>
+          R$
+          {' '}
           { price }
         </h2>
       </div>
