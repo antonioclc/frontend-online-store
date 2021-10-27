@@ -4,7 +4,7 @@ import CartButton from '../components/CartButton';
 
 export default class ProductDetails extends React.Component {
   render() {
-    const { location: { state: 
+    const { location: { state:
       { title, thumbnail, price, id } }, addToCart, cartList } = this.props;
     return (
       <div data-testid="product">
