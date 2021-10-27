@@ -6,6 +6,7 @@ import ShoppingCart from './pages/ShoppingCart';
 import ProductDetails from './pages/ProductDetails';
 import Card from './components/Card';
 import { getCategories, getProductsFromCategoryAndQuery } from './services/api';
+import Checkout from './pages/Checkout';
 
 class App extends React.Component {
   constructor() {
@@ -137,6 +138,7 @@ class App extends React.Component {
                 addToCart={ this.addToCart }
               />) }
             />
+            <Route exact path="/checkout" component={ Checkout } />
           </Switch>
         </BrowserRouter>
       </div>
