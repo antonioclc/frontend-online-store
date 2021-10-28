@@ -24,10 +24,13 @@ class App extends React.Component {
     this.onClickCategory = this.onClickCategory.bind(this);
     this.verifyProductList = this.verifyProductList.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.addLocalStorage = this.addLocalStorage.bind(this);
+    this.restoreCartList = this.restoreCartList.bind(this);
   }
 
   componentDidMount() {
     this.renderCategories();
+    this.restoreCartList();
   }
   // 2 - input text
 
@@ -52,7 +55,19 @@ class App extends React.Component {
     const item = productsList.filter((product) => product.id === id);
     this.setState({
       cartList: [...cartList, ...item],
-    });
+    }, () => this.addLocalStorage());
+  }
+
+  addLocalStorage() {
+    const { cartList } = this.state;
+    localStorage.setItem('cartLocalStorage', JSON.stringify(cartList));
+  }
+
+  restoreCartList() {
+    const actualCartList = JSON.parse(localStorage.getItem('cartLocalStorage'));
+    if (actualCartList !== null) {
+      this.setState({ cartList: actualCartList });
+    }
   }
 
   // 4
