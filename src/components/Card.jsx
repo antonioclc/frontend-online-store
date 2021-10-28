@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Card extends React.Component {
   render() {
-    const { state: { title, thumbnail, price, id } } = this.props;
+    const { state: { title, thumbnail, price, id, shipping } } = this.props;
     return (
       <div data-testid="product">
         <h3>
@@ -16,6 +16,7 @@ export default class Card extends React.Component {
           {' '}
           { price }
         </h2>
+        { shipping.free_shipping && <p data-testid="free-shipping">Frete Grátis</p>}
       </div>
     );
   }

@@ -5,7 +5,7 @@ import CartButton from '../components/CartButton';
 export default class ProductDetails extends React.Component {
   render() {
     const { location: { state:
-      { title, thumbnail, price, id } }, addToCart, cartList } = this.props;
+      { title, thumbnail, price, id, shipping } }, addToCart, cartList } = this.props;
     return (
       <div data-testid="product">
         <CartButton cartList={ cartList } />
@@ -18,6 +18,7 @@ export default class ProductDetails extends React.Component {
           {' '}
           { price }
         </h2>
+        { shipping.free_shipping && <p data-testid="free-shipping">Frete Grátis</p>}
         <input
           id={ id }
           type="button"
