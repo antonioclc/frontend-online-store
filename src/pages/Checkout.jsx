@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 export default class Checkout extends React.Component {
   render() {
     const { location: { state } } = this.props;
-    console.log(state);
     return (
       <div>
         {
