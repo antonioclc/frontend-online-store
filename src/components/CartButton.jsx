@@ -14,6 +14,7 @@ export default class CartButton extends React.Component {
             data-testid="shopping-cart-button"
           >
             <AiOutlineShoppingCart />
+            <p data-testid="shopping-cart-size">{ cartList.length }</p>
           </button>
         </Link>
       </div>
