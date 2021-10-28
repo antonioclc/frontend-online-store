@@ -6,15 +6,35 @@ export default class ItemCart extends React.Component {
     super();
     this.state = {
       quantity: 1,
+      disabled: false,
     };
     this.changeQuantityIncrease = this.changeQuantityIncrease.bind(this);
     this.changeQuantityDecrease = this.changeQuantityDecrease.bind(this);
+    this.disabledButton = this.disabledButton.bind(this);
+  }
+
+  disabledButton() {
+    const { item } = this.props;
+    const { quantity } = this.state;
+    if (quantity === item.available_quantity) {
+      this.setState({
+        disabled: true,
+      });
+    } else {
+      this.setState({
+        disabled: false,
+      });
+    }
   }
 
   changeQuantityIncrease() {
-    this.setState((prevState) => ({
-      quantity: prevState.quantity + 1,
-    }));
+    const { item } = this.props;
+    const { quantity } = this.state;
+    if (quantity < item.available_quantity) {
+      this.setState((prevState) => ({
+        quantity: prevState.quantity + 1,
+      }), () => this.disabledButton());
+    }
   }
 
   changeQuantityDecrease() {
@@ -22,13 +42,13 @@ export default class ItemCart extends React.Component {
     if (quantity > 1) {
       this.setState((prevState) => ({
         quantity: prevState.quantity - 1,
-      }));
+      }), () => this.disabledButton());
     }
   }
 
   render() {
     const { item } = this.props;
-    const { quantity } = this.state;
+    const { quantity, disabled } = this.state;
 
     return (
       <div>
@@ -54,6 +74,7 @@ export default class ItemCart extends React.Component {
           onClick={ this.changeQuantityIncrease }
           type="button"
           data-testid="product-increase-quantity"
+          disabled={ disabled }
         >
           +
         </button>

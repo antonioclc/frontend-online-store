@@ -36,7 +36,7 @@ export default class Home extends React.Component {
           <ul>
             {categories.map(({ id, name }) => (
               <li key={ id }>
-                <label htmlFor="category">
+                <label htmlFor={ id }>
                   { name }
                   <input
                     name="category"
