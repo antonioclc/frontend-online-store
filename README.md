@@ -2,13 +2,34 @@
 <h2>Apresentação</h2>
 <img src="https://github.com/antonioclc/frontend-online-store/blob/main/public/frontend-online-store.png?raw=true">
 <p>Simula um e-commerce, tendo filtragem por categoria ou digitando no campo de busca, carrinho com as compras adicionadas, avaliação do produto, finalização do pedido, entre outras funcionalidades.</p>
-<p><strong>Desenvolvido por:</strong> Antônio Campos -
-	<a  href="https://github.com/antonioclc"  target="_blank"  		rel="noreferrer">GitHub |
+<p><strong>Desenvolvido por:</strong> Antônio Campos
+	<a  href="https://github.com/antonioclc"  target="_blank"  		rel="noreferrer">(GitHub |
 	</a> 
-	<a  href="https://www.linkedin.com/in/ant%C3%B4nio-campos/"  target="_blank"  rel="noreferrer">LinkedIn
+	<a  href="https://www.linkedin.com/in/ant%C3%B4nio-campos/"  target="_blank"  rel="noreferrer">LinkedIn)	
 	</a>
+	, Caio Magalhães
+	<a  href="https://github.com/CaioMagalhaesPinheiro"  target="_blank"  		rel="noreferrer">(GitHub |
+	</a> 
+	<a  href="https://www.linkedin.com/in/caiomagalh%C3%A3espinheiro/
+"  target="_blank"  rel="noreferrer">LinkedIn)	
+	</a>
+	, Fernando Segregio
+	<a  href="https://github.com/FernandoSegregio"  target="_blank"  		rel="noreferrer">(GitHub |
+	</a> 
+	<a  href="https://www.linkedin.com/in/fernando-segregio/"  target="_blank"  rel="noreferrer">LinkedIn)	
+	</a>
+	,  Israel Jerônimo
+	<a  href="https://github.com/Israeljs"  target="_blank"  		rel="noreferrer">(GitHub |
+	</a> 
+	<a  href="https://www.linkedin.com/in/israel-jer%C3%B4nimo-da-silva/"  target="_blank"  rel="noreferrer">LinkedIn)	
+	</a>
+	,  Walace Borges
+	<a  href="https://github.com/walaceborges"  target="_blank"  		rel="noreferrer">(GitHub |
+	</a> 
+	<a  href="https://www.linkedin.com/in/walace-borges-247611100/"  target="_blank"  rel="noreferrer">LinkedIn)	
+	</a>
+	
 </p>
-
 <p><strong>Tecnologias utilizadas:</strong> HTML, CSS, JavaScript, React</p>
 <h2>Guia de instalação</h2>
 <p>Para acessar o projeto, primeiro abra seu terminal e digite os seguinte comandos:</p>
