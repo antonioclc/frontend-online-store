@@ -10,18 +10,15 @@
 	</a> 
 	<a  href="https://www.linkedin.com/in/caiomagalh%C3%A3espinheiro/
 "  target="_blank"  rel="noreferrer">LinkedIn)	
-	</a>
-	, Fernando Segregio
+	</a>, Fernando Segregio
 	<a  href="https://github.com/FernandoSegregio"  target="_blank"  		rel="noreferrer">(GitHub |
 	</a> 
 	<a  href="https://www.linkedin.com/in/fernando-segregio/"  target="_blank"  rel="noreferrer">LinkedIn)	
-	</a>
-	,  Israel Jerônimo
+	</a>,  Israel Jerônimo
 	<a  href="https://github.com/Israeljs"  target="_blank"  		rel="noreferrer">(GitHub |
 	</a> 
 	<a  href="https://www.linkedin.com/in/israel-jer%C3%B4nimo-da-silva/"  target="_blank"  rel="noreferrer">LinkedIn)	
-	</a>
-	,  Walace Borges
+	</a>,  Walace Borges
 	<a  href="https://github.com/walaceborges"  target="_blank"  		rel="noreferrer">(GitHub |
 	</a> 
 	<a  href="https://www.linkedin.com/in/walace-borges-247611100/"  target="_blank"  rel="noreferrer">LinkedIn)	
