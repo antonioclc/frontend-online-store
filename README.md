@@ -5,8 +5,7 @@
 <p><strong>Desenvolvido por:</strong> Antônio Campos
 	<a  href="https://github.com/antonioclc"  target="_blank"  		rel="noreferrer">(GitHub |
 	</a> 
-	<a  href="https://www.linkedin.com/in/ant%C3%B4nio-campos/"  target="_blank"  rel="noreferrer">LinkedIn)</a>
-	, Caio Magalhães
+	<a  href="https://www.linkedin.com/in/ant%C3%B4nio-campos/"  target="_blank"  rel="noreferrer">LinkedIn)</a>, Caio Magalhães
 	<a  href="https://github.com/CaioMagalhaesPinheiro"  target="_blank"  		rel="noreferrer">(GitHub |
 	</a> 
 	<a  href="https://www.linkedin.com/in/caiomagalh%C3%A3espinheiro/
