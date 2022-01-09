@@ -51,33 +51,58 @@ export default class ItemCart extends React.Component {
     const { quantity, disabled } = this.state;
 
     return (
-      <div>
-        <h3 data-testid="shopping-cart-product-name">
-          { item.title }
-        </h3>
-        <h4>{ item.id }</h4>
-        <img src={ item.thumbnail } alt={ item.title } />
-        <h2>
-          R$
-          {' '}
-          { item.price }
-        </h2>
-        <button
-          onClick={ this.changeQuantityDecrease }
-          type="button"
-          data-testid="product-decrease-quantity"
-        >
-          -
-        </button>
-        <p data-testid="shopping-cart-product-quantity">{quantity}</p>
-        <button
-          onClick={ this.changeQuantityIncrease }
-          type="button"
-          data-testid="product-increase-quantity"
-          disabled={ disabled }
-        >
-          +
-        </button>
+      <div className="item-cart-container">
+        <div className="item-cart-product">
+          <img
+            src={ item.thumbnail }
+            alt={ item.title }
+            className="item-cart-product-image"
+          />
+          <div className="item-cart-product-info">
+            <h3
+              className="item-cart-product-info-title"
+              data-testid="shopping-cart-product-name"
+            >
+              { item.title }
+            </h3>
+            <h4 className="item-cart-product-info-id">
+              ID:
+              {' '}
+              { item.id }
+            </h4>
+            <h2 className="item-cart-product-info-price">
+              R$
+              {' '}
+              { (item.price * quantity).toFixed(2) }
+            </h2>
+          </div>
+        </div>
+        <div className="item-cart-buttons">
+          <button
+            className="item-cart-buttons-inc-dec"
+            onClick={ this.changeQuantityDecrease }
+            type="button"
+            data-testid="product-decrease-quantity"
+          >
+            -
+          </button>
+          <p
+            className="item-cart-buttons-quantity"
+            data-testid="shopping-cart-product-quantity"
+          >
+            {quantity}
+
+          </p>
+          <button
+            className="item-cart-buttons-inc-dec"
+            onClick={ this.changeQuantityIncrease }
+            type="button"
+            data-testid="product-increase-quantity"
+            disabled={ disabled }
+          >
+            +
+          </button>
+        </div>
       </div>
     );
   }

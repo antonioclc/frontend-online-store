@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import carrinho from '../images/carrinho.png';
 
 export default class CartButton extends React.Component {
   render() {
@@ -9,13 +9,16 @@ export default class CartButton extends React.Component {
     return (
       <div>
         <Link to={ { pathname: '/cart', state: cartList } }>
-          <button
-            type="button"
-            data-testid="shopping-cart-button"
-          >
-            <AiOutlineShoppingCart />
-            <p data-testid="shopping-cart-size">{ cartList.length }</p>
-          </button>
+          <div className="cart-button-container">
+            <div>
+              <img className="cart-button-img" src={ carrinho } />
+            </div>
+            <div>
+              {
+                cartList.length === 0 ? null : (<p className="cart-button-number" data-testid="shopping-cart-size">{ cartList.length }</p>)
+              }
+            </div>
+          </div>
         </Link>
       </div>
     );

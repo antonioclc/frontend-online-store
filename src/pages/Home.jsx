@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CartButton from '../components/CartButton';
+import Header from '../components/Header';
 
 export default class Home extends React.Component {
   render() {
@@ -8,52 +8,61 @@ export default class Home extends React.Component {
       renderProducts, verifyProductList, cartList } = this.props;
     return (
       <div>
-        <label htmlFor="input-text">
-          <input
-            onChange={ onInputChange }
-            data-testid="query-input"
-            type="text"
-            id="input-text"
-          />
-        </label>
-        <button
-          type="button"
-          data-testid="query-button"
-          onClick={ renderProducts }
-        >
-          Pesquisar
-        </button>
-        <h3
-          data-testid="home-initial-message"
-        >
-          Digite algum termo de pesquisa ou escolha uma categoria.
+        <Header cartList={ cartList } />
+        <div className="home-container">
+          <div className="home-container-input">
+            <label htmlFor="input-text">
+              <input
+                onChange={ onInputChange }
+                data-testid="query-input"
+                type="text"
+                id="input-text"
+              />
+            </label>
+            <button
+              className="home-container-input-button"
+              type="button"
+              data-testid="query-button"
+              onClick={ renderProducts }
+            >
+              Pesquisar
+            </button>
+          </div>
+          <div className="home-container-category-and-list">
+            <div className="home-category">
+              <h3
+                data-testid="home-initial-message"
+              >
+                Categorias
 
-        </h3>
+              </h3>
+              <section>
+                {categories.map(({ id, name }) => (
+                  <p key={ id }>
+                    <label htmlFor={ id }>
+                      { name }
+                      <input
+                        name="category"
+                        key={ id }
+                        id={ id }
+                        value={ name }
+                        type="radio"
+                        onClick={ onClickCategory }
+                        data-testid="category"
+                      />
+                    </label>
+                  </p>
+                ))}
+              </section>
+            </div>
+            <div className="home-list">
+              { verifyProductList() }
+            </div>
 
-        <CartButton cartList={ cartList } />
-
-        <section>
-          <ul>
-            {categories.map(({ id, name }) => (
-              <li key={ id }>
-                <label htmlFor={ id }>
-                  { name }
-                  <input
-                    name="category"
-                    key={ id }
-                    id={ id }
-                    value={ name }
-                    type="radio"
-                    onClick={ onClickCategory }
-                    data-testid="category"
-                  />
-                </label>
-              </li>
-            ))}
-          </ul>
-        </section>
-        { verifyProductList() }
+          </div>
+        </div>
       </div>
+
     );
   }
 }

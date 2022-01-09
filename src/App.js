@@ -32,7 +32,7 @@ class App extends React.Component {
     this.renderCategories();
     this.restoreCartList();
   }
-  // 2 - input text
+  // 3 - input text
 
   onInputChange({ target }) {
     const targetValue = target.value;
@@ -41,7 +41,7 @@ class App extends React.Component {
     });
   }
 
-  // 2 - radio button
+  // 3 - radio button
   onClickCategory({ target }) {
     const targetId = target.id;
     this.setState({
@@ -63,6 +63,7 @@ class App extends React.Component {
     localStorage.setItem('cartLocalStorage', JSON.stringify(cartList));
   }
 
+  // 1
   restoreCartList() {
     const actualCartList = JSON.parse(localStorage.getItem('cartLocalStorage'));
     if (actualCartList !== null) {
@@ -70,7 +71,7 @@ class App extends React.Component {
     }
   }
 
-  // 4
+  // 5
   verifyProductList() {
     const { productsList } = this.state;
     if (productsList.length > 0) {
@@ -78,7 +79,10 @@ class App extends React.Component {
         <div>
           {
             productsList.map((product) => (
-              <div key={ product.id }>
+              <div
+                key={ product.id }
+                className="home-list-product"
+              >
                 <Link
                   to={ { pathname: `/productdetails/${product.id}`, state: product } }
                   data-testid="product-detail-link"
@@ -88,6 +92,7 @@ class App extends React.Component {
                   />
                 </Link>
                 <input
+                  className="home-container-input-button"
                   id={ product.id }
                   type="button"
                   value="Adicionar item"
@@ -102,7 +107,7 @@ class App extends React.Component {
     }
   }
 
-  // 3
+  // 4
   async renderProducts() {
     const { idCategories, inputSearch } = this.state;
     const products = await getProductsFromCategoryAndQuery(idCategories, inputSearch);
@@ -111,7 +116,7 @@ class App extends React.Component {
     });
   }
 
-  // 1
+  // 2
   async renderCategories() {
     const categories = await getCategories();
     this.setState({
@@ -138,7 +143,14 @@ class App extends React.Component {
                 addToCart={ this.addToCart }
               />) }
             />
-            <Route exact path="/cart" component={ ShoppingCart } />
+            <Route
+              exact
+              path="/cart"
+              render={ (props) => (<ShoppingCart
+                { ...props }
+                { ...this.state }
+              />) }
+            />
             <Route
               exact
               path="/productdetails/:id"
@@ -153,7 +165,14 @@ class App extends React.Component {
                 addToCart={ this.addToCart }
               />) }
             />
-            <Route exact path="/checkout" component={ Checkout } />
+            <Route
+              exact
+              path="/checkout"
+              render={ (props) => (<Checkout
+                { ...props }
+                { ...this.state }
+              />) }
+            />
           </Switch>
         </BrowserRouter>
       </div>

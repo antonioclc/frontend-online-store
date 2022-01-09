@@ -12,9 +12,10 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-
 }
-
+.header-container {
+  background-color: bluebird
+}
 .App-header {
   align-items: center;
   background-color: #282c34;
